@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>echarts liquidfill</title>
+  <link rel="stylesheet" href="./style/index.css">
+</head>
+
+<body>
+  <div id="demo"></div>
+</body>
+
+<script src="./lib/echarts.js"></script>
+<script src="./lib/echarts-liquidfill.js"></script>
+<script>
+  const chart = echarts.init(document.getElementById('demo'))
+
+  const option = {
+    tooltip: { // 划过显示标题
+      show: true
+    },
+    series: [{
+      type: 'liquidFill',
+      data: [0.6], // 显示进度
+      radius: '80%', // 球根据demo大小
+      color: ['red'], // 水的颜色
+      itemStyle: { // 单独设置水的样式
+        opacity: 0.1
+      },
+      animationDuration: 500, // 水位上升时间 ms
+      emphasis: {
+        itemStyle: { // 选中样式
+          opacity: 0.4
+        }
+      },
+      amplitude: 20, // 水波峰值
+      // waveAnimation: 0 //水波动画 
+      backgroundStyle: {
+        color: 'yellow'
+      },
+      outline: { // 边框样式
+        show: true, // 默认true
+        borderDistance: 0,
+        itemStyle: {
+          borderWidth: 5,
+          borderColor: '#156ACF',
+          shadowBlur: 20,
+          shadowColor: 'rgba(255, 0, 0, 1)'
+        }
+      }
+    }]
+  }
+
+  chart.setOption(option)
+</script>
+
+</html>
