@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>echarts</title>
+  <link rel="stylesheet" href="./style/index.css">
+</head>
+
+<body>
+  <div id="demo"></div>
+  <script src="./lib/echarts.js"></script>
+  <script>
+    const chart = echarts.init(document.getElementById('demo'))
+
+    const option = {
+      tooltip: {},
+      xAxis: {
+        type: 'category',
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [{
+        data: [{
+          name: 'test',
+          value: 820
+        }, 932, 901, 934, 1290, 1330, 1320],
+        type: 'line',
+        smooth: true
+      }],
+    }
+
+    chart.setOption(option)
+
+    window.addEventListener('resize', chart.resize)
+  </script>
+</body>
+
+</html>

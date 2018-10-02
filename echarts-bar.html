@@ -17,7 +17,9 @@
     const chart = echarts.init(document.getElementById('demo'))
 
     const option = {
-      legend: {},
+      legend: {
+        bottom: '50%'
+      },
       tooltip: {},
       dataset: {
         source: [
@@ -38,15 +40,45 @@
       },
       yAxis: {},
       series: [{
-          type: 'bar'
+          type: 'bar',
+          itemStyle: {
+            normal: {
+              color: 'blue',
+              opacity: 0.5
+            }
+          }
         },
         {
-          type: 'bar'
+          type: 'bar',
+          itemStyle: {
+            color: 'red',
+            opacity: 0.3
+          }
         },
         {
-          type: 'bar'
+          type: 'bar',
+          itemStyle: {
+            normal: {
+              color: new echarts.graphic.LinearGradient(
+                0, 0, 0, 1,
+                [{
+                    offset: 0,
+                    color: '#83bff6'
+                  },
+                  {
+                    offset: 0.5,
+                    color: '#188df0'
+                  },
+                  {
+                    offset: 1,
+                    color: '#188df0'
+                  }
+                ]
+              )
+            },
+          }
         }
-      ]
+      ],
     }
 
     chart.setOption(option)
